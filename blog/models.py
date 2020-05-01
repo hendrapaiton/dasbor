@@ -6,7 +6,7 @@ class Blog(models.Model):
     body = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now_add=True)
-    is_draft = models.BooleanField(default=True, verbose_name="published")
+    is_draft = models.BooleanField(default=True, verbose_name="draft")
     slug = models.SlugField(max_length=100)
 
     def __str__(self):
