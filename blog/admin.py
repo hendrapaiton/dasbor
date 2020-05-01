@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from blog.models import Blog
+from blog.models import Blog, Comment
 
 
 class BlogAdmin(admin.ModelAdmin):
@@ -20,9 +20,10 @@ class BlogAdmin(admin.ModelAdmin):
 
     def set_blogs_to_publish(self, request, queryset):
         count = queryset.update(is_draft=False)
-        self.message_user(request, '{} blogs have been published successfully'.format(count))
+        self.message_user(request, '{} blog telah berhasil dipublikasi'.format(count))
 
-    set_blogs_to_publish.short_description = 'Mark selected blogs as publish'
+    set_blogs_to_publish.short_description = 'Tandai blog terpilih sebagai publik'
 
 
 admin.site.register(Blog, BlogAdmin)
+admin.site.register(Comment)
